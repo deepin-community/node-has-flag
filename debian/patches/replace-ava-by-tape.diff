@@ -1,0 +1,21 @@
+Description: replace ava by tape
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-03-08
+
+--- a/test.js
++++ b/test.js
+@@ -1,5 +1,5 @@
+-import test from 'ava';
+-import hasFlag from '.';
++const test = require('tape');
++const hasFlag = require('.');
+ 
+ test('main', t => {
+ 	t.true(hasFlag('unicorn', ['--foo', '--unicorn', '--bar']));
+@@ -13,4 +13,5 @@
+ 	t.true(hasFlag('u', ['-f', '-u', '-b']));
+ 	t.true(hasFlag('u', ['-u', '--', '-f']));
+ 	t.false(hasFlag('f', ['-u', '--', '-f']));
++	t.end();
+ });
