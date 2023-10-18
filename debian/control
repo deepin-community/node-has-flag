@@ -3,10 +3,10 @@ Section: javascript
 Priority: optional
 Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
 Uploaders: Thorsten Alteholz <debian@alteholz.de>
-Build-Depends: debhelper-compat (= 12)
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
  , node-tape <!nocheck>
- , pkg-js-tools (>= 0.9.20~)
-Standards-Version: 4.5.0
+Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/js-team/node-has-flag
 Vcs-Git: https://salsa.debian.org/js-team/node-has-flag.git
 Homepage: https://github.com/sindresorhus/has-flag
@@ -16,7 +16,7 @@ Rules-Requires-Root: no
 Package: node-has-flag
 Architecture: all
 Depends: ${misc:Depends}
- , nodejs
+Multi-Arch: foreign
 Description: check if argv has a specific flag
  This module checks if argv has a specific flag and correctly stops
  looking after an -- argument terminator.
